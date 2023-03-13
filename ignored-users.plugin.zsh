@@ -1,5 +1,6 @@
 if [[ -e /etc/passwd ]]; then
-  CACHE_FILE="${TMPDIR:-/tmp}/zsh-${UID}/ignored-users.zsh"
+  ZSH_CACHE_DIR="${ZSH_CACHE_DIR:-${TMPDIR:-/tmp}/zsh-${UID:-user}}"
+  CACHE_FILE="${ZSH_CACHE_DIR}/ignored-users.zsh"
   if [[ -f "$CACHE_FILE" ]]; then
     source "$CACHE_FILE"
   else
